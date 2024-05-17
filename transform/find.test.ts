@@ -1,1 +1,1 @@
-const myName1: string = "po4tion";
+const myName: string = "po4tion";
