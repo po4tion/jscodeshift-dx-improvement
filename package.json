@@ -9,7 +9,8 @@
     "lint": "next lint",
     "codeshift": "jscodeshift -t ./transform.ts --extensions=ts,tsx --parser=tsx './app' './components' --print",
     "codeshift:find": "jscodeshift -t ./transform/find.ts --extensions=ts --parser=ts './transform/find.test.ts' --print",
-    "codeshift:remove": "jscodeshift -t ./transform/remove.ts --extensions=ts --parser=ts './transform/remove.test.ts' --print"
+    "codeshift:remove": "jscodeshift -t ./transform/remove.ts --extensions=ts --parser=ts './transform/remove.test.ts' --print",
+    "codeshift:modify": "jscodeshift -t ./transform/modify.ts --extensions=ts --parser=ts './transform/modify.test.ts' --print"
   },
   "dependencies": {
     "jscodeshift": "^0.15.2",
