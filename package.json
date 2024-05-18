@@ -12,7 +12,8 @@
     "codeshift:remove": "jscodeshift -t ./transform/remove.ts --extensions=ts --parser=ts './transform/remove.test.ts' --print",
     "codeshift:modify": "jscodeshift -t ./transform/modify.ts --extensions=ts --parser=ts './transform/modify.test.ts' --print",
     "codeshift:add": "jscodeshift -t ./transform/add.ts --extensions=ts --parser=ts './transform/add.test.ts' --print",
-    "codeshift:logger": "jscodeshift -t ./transform/findAndModifyToLogger.ts --extensions=ts --parser=ts './transform/findAndModifyToLogger.test.ts' --print"
+    "codeshift:logger": "jscodeshift -t ./transform/findAndModifyToLogger.ts --extensions=ts --parser=ts './transform/findAndModifyToLogger.test.ts' --print",
+    "codeshift:error": "jscodeshift -t ./transform/catchErrorToLogger.ts --extensions=ts --parser=ts './transform/catchErrorToLogger.test.ts' --print"
   },
   "dependencies": {
     "jscodeshift": "^0.15.2",
