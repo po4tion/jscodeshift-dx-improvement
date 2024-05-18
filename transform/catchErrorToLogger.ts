@@ -30,10 +30,10 @@ export default function transformer(file: FileInfo, { jscodeshift: j }: API) {
           })
           .forEach((consolePath) => {
             const args = consolePath.node.arguments;
+
             if (args.length === 1 && args[0].type === "ObjectExpression") {
               const properties = args[0].properties;
               const hasErrorProperty = properties.some((property) => {
-                // console.log(`🟢 ${inspect(property)}`);
                 if (j.ObjectProperty.check(property)) {
                   const { key } = property;
 
@@ -43,11 +43,9 @@ export default function transformer(file: FileInfo, { jscodeshift: j }: API) {
                 return false;
               });
 
-              console.log(`🟢 ${hasErrorProperty}`);
-
               if (!hasErrorProperty) {
                 if (paramName === IDENTIFIER.error) {
-                  // 매개변수 이름이 'error'일 때 객체 리터럴 축약 문법을 사용한다
+                  // 매개변수 이름이 'error'일 때 객체 속성 축약 문법을 사용한다
                   properties.push(
                     j.property.from({
                       kind: "init",
