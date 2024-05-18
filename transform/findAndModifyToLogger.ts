@@ -23,7 +23,6 @@ export default function transformer(file: FileInfo, { jscodeshift: j }: API) {
         },
         property: {
           type: "Identifier",
-          name: "debug",
         },
       },
     })
@@ -34,7 +33,7 @@ export default function transformer(file: FileInfo, { jscodeshift: j }: API) {
         loggerArguments.value.length > 0 &&
         j.ObjectExpression.check(loggerArguments.value[0]);
 
-      // console.debug의 argument에 객체 표현식이 있는지 검증
+      // console의 argument에 객체 표현식이 있는지 검증
       if (hasObjectExpression) {
         const { properties } = loggerArguments.value[0];
         const hasFilepath = properties.some((property) => {
