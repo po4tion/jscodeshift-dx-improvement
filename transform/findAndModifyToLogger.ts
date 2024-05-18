@@ -38,7 +38,7 @@ export default function transformer(file: FileInfo, { jscodeshift: j }: API) {
         const { properties } = loggerArguments.value[0];
         const hasFilepath = properties.some((property) => {
           // property's type guard
-          if (j.Property.check(property)) {
+          if (j.ObjectProperty.check(property)) {
             const { key } = property;
 
             return j.Identifier.check(key) && key.name === IDENTIFIER.filepath;
